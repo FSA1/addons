@@ -52,7 +52,7 @@ var regexGreetings = new RegExp(/^(bo[ma] (dia|tarde|noite))!?/g, 'gui')
 var regexGrigor = new RegExp(/\b(Pringles|fot(o){0,1}(inh[oa]){0,1} de anime|n[aã]o ?magoar( as)? ?pessoas|jogar? [kc]aro[ -]?[kc]ann?|jogar? francesa|caraca ?g4|g4 ?grobiano|grobiano ?raiz|premove ?aloprado|(seis|[0-9]{1,})( ?k?| ?mil)? ?lances?|p[ei]ndura[A-z]{0,}|da ?mate ?logo|oh ?c'?mon|(eu ?)?to ?pior( ?j[aá])?|to ?melhor( ?j[aá])?|nota ?zero|[KG]ri[kg]or?[A-z]{0,}|roubei ?nessa ?(partida)?|(o ?cara ?)?t[aá] ?ro(u)?bando|claramente ?roubando|^(mds|mjc|msca)$)\b|\b(oh?)? ?cacilda\b!?|\bbamos\b!?|\bperdemo\b!?|\bSafado\b!?|lance!|(eu )?[voôu]{2,3} ?processar ?[oa]?|(a[ií])? ?é fl[oó]rida|\blondres\b!|\bsaudaç[õo]es ?noturnas?\b!?/g, 'gui')
 
 // Regular expression for general terms and expressions
-var regexTerms = new RegExp(/\b(MLADY|modCheck|(isso)? ?n[ao] russia [A-zÀ-ú ,.]{0,} cadeia|Raff?a?(el)? ?Pig|Raff?ael Leitão|Salve.{0,2}|senna|Ding( Liren)?|Magnus( Carlsen)?|(Hikaru )?Naka(mura)?|(Ian )?Nepo([A-z]{0,})|Raff?a?(el)? ?Chess|wh([a]){2,}t[?]{0,}|o? ?qu(e){3,}[?]{0,}|q{4,}|en[gja]{1,2}ine|stockfish|(stock){0,1}peixe|a? ?barri(lda|nha).*(morreu|já era|RIP|F(aleceu)?|enlouqueceu?)|tilt[A-z]{0,}|tchau ?daminha|(final)( ){0,}triste|(sadness)( ){0,}and( ){0,}sorrow|cheating)\b|\ba?cab([o]){2,}([hu ]){0,}\b!?|[eéh ]{0,}\bt[eé]{1,}tr[a]{1,}\b!?/g, 'gui')
+var regexTerms = new RegExp(/\b(MLADY|modCheck|(isso)? ?n[ao] russia [A-zÀ-ú ,.]{0,} cadeia|Raff?a?(el)? ?Pig|Raff?ael Leitão|Salve.{0,2}|senna|Ding( Liren)?|Magnus( Carlsen)?|(Hikaru )?Naka(mura)?|(Ian )?Nepo([A-z]{0,})|Raff?a?(el)? ?Chess|wh([a]){2,}t[?]{0,}|o? ?qu(e){3,}[?]{0,}|q{4,}|en[gja]{1,2}ine|stockfish|(stock){0,1}peixe|.*barri(lda|nha).*|tilt[A-z]{0,}|tchau ?daminha|(final)( ){0,}triste|(sadness)( ){0,}and( ){0,}sorrow|cheating)\b|\ba?cab([o]){2,}([hu ]){0,}\b!?|[eéh ]{0,}\bt[eé]{1,}tr[a]{1,}\b!?/g, 'gui')
 
 // Enable the mutation observer to observe the child elements of the Twitch chat, the chat messages
 var mutationConfig = { childList: true };
@@ -242,16 +242,12 @@ const soundmsg = (message) => {
     if (message.match(/\b(oh?)? ?cacilda\b!?/gui)) {
         playRandomSound([cacilda1, cacilda2], miscVol)
         return '<a class="funny-sound">🔊</a>&nbsp ' + message
+    }//Tilt
+    if (message.match(/tilt[A-z]{0,}/gui)) {
+        playRandomSound([shutdownxp], laughsVol)
+        return '<a class="funny-sound"></a> <img style="display: block; user-select: none; margin: left;  width: 20%" src="' + selectedServer + 'emotes/barrilda.gif"> ' + message
     }//barrilda
-    if (message.match(/(morreu|já era|RIP|F(aleceu)?|enlouqueceu?) .* barri(lda|nha)|tilt[A-z]{0,}/gui)) {
-        playRandomSound([shutdownxp], laughsVol)
-        return '<a class="funny-sound"></a> <img style="display: block; user-select: none; margin: left;  width: 20%" src="' + selectedServer + 'emotes/barrilda.gif"> ' + message
-    }
-    if (message.match(/a? ?barri(lda|nha).*(morreu|já era|RIP|F(aleceu)?|enlouqueceu?)|tilt[A-z]{0,}/gui)) {
-        playRandomSound([shutdownxp], laughsVol)
-        return '<a class="funny-sound"></a> <img style="display: block; user-select: none; margin: left;  width: 20%" src="' + selectedServer + 'emotes/barrilda.gif"> ' + message
-    }
-    if (message.match(/\bbarri(lda|nha)\b/gui)) {
+    if (message.match(/barri(lda|nha)/gui)) {
         return '<a class="funny-sound"></a> <img style="display: block; user-select: none; margin: left;  width: 20%" src="' + selectedServer + 'emotes/barrilda.gif"> ' + message
     }//Rafael Leitão, RafPig, Raffa Pig
     if (message.match(/Raff?a?(el)? ?Pig|Raff?ael Leitão/gui)) {
