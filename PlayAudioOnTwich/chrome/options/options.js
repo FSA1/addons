@@ -1,6 +1,6 @@
 function save_options() {
-  var terms = document.getElementById('terms').checked;
-  var grigor = document.getElementById('grigor').checked;
+  var misc = document.getElementById('misc').checked;
+  var pringles = document.getElementById('pringles').checked;
   var laughs = document.getElementById('laughs').checked;
   var greetings = document.getElementById('greetings').checked;
   var lvolume = document.getElementById('lvolume').valueAsNumber;
@@ -9,14 +9,14 @@ function save_options() {
 
   chrome.storage.local.set({
     //audio types
-    chatWords: terms,
-    channelGrigor: grigor,
-    laughsAudio: laughs,
-    greetingAudio: greetings,
+    Miscellaneous: misc,
+    Pringles: pringles,
+    Laughs: laughs,
+    Greetings: greetings,
     //volume level
     laughsVol: lvolume,
-    greetingVol: gvolume,
-    miscellaneousVol: mvolume
+    greetVol: gvolume,
+    miscVol: mvolume
   }, function () {
   });
 }
@@ -25,29 +25,29 @@ function restore_options() {
   // Default values
   chrome.storage.local.get({
     //audio types
-    chatWords: true,
-    channelGrigor: true,
-    laughsAudio: true,
-    greetingAudio: true,
+    Miscellaneous: true,
+    Pringles: true,
+    Laughs: true,
+    Greetings: true,
     //volume level
     laughsVol: 0.4,
-    greetingVol: 1.0,
-    miscellaneousVol: 1.0,
+    greetVol: 1.0,
+    miscVol: 1.0,
     retroActive: false
   }, function (items) {
-    document.getElementById('terms').checked = items.chatWords;
-    document.getElementById('grigor').checked = items.channelGrigor;
-    document.getElementById('laughs').checked = items.laughsAudio;
-    document.getElementById('greetings').checked = items.greetingAudio;
+    document.getElementById('misc').checked = items.Miscellaneous;
+    document.getElementById('pringles').checked = items.Pringles;
+    document.getElementById('laughs').checked = items.Laughs;
+    document.getElementById('greetings').checked = items.Greetings;
     document.getElementById('lvolume').valueAsNumber = items.laughsVol;
-    document.getElementById('gvolume').valueAsNumber = items.greetingVol;
-    document.getElementById('mvolume').valueAsNumber = items.miscellaneousVol;
+    document.getElementById('gvolume').valueAsNumber = items.greetVol;
+    document.getElementById('mvolume').valueAsNumber = items.miscVol;
   });
 }
 
 document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('terms').addEventListener('change', save_options);
-document.getElementById('grigor').addEventListener('change', save_options);
+document.getElementById('misc').addEventListener('change', save_options);
+document.getElementById('pringles').addEventListener('change', save_options);
 document.getElementById('laughs').addEventListener('change', save_options);
 document.getElementById('greetings').addEventListener('change', save_options);
 document.getElementById('lvolume').addEventListener('change', save_options);

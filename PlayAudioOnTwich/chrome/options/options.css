@@ -13,10 +13,10 @@
   }
 
 body{
-    width: 200px;
-    text-align: center;
-    border:                 3px double black;
-    border-radius:          1ex;                
+    width: 300px;
+    text-align: left;
+    border-radius: 1ex;
+    padding: 10px;
 }
 
 h3{
@@ -34,4 +34,24 @@ h4{
 }
 #volume {
   width: 4em;
+}
+.emote{
+  margin-left: 80%;
+  margin-right: 10px;
+}
+/*scheme*/
+@media (prefers-color-scheme: light) {
+	body {
+		background-color: #f5f5f5;
+    border: 3px double #bf94ff;
+		color: #222;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: #292A2D;
+    border: 3px double #bf94ff;
+		color: #fff;
+	}
 }

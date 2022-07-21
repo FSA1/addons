@@ -1,25 +1,34 @@
 <head>
   <meta charset="UTF-8"/>
   <link rel="stylesheet" href="options.css">
+  <link rel="stylesheet" href="essential_audio.css" />
+  <script src="essential_audio.js"></script>
 </head>
 
 <body>
-  <h3>Play Audio on Twitch Chat</h3>
+  <h3>Play Audio on Twitch</h3>
   <h4>Ativar/Desativar Audios</h4>
   <div class="checkboxes">
-    <label for="terms"><input type="checkbox" id="terms" /> <span>Diversos</span></label>
-    <label for="grigor"><input type="checkbox" id="grigor" /> <span>GM Krikor</span></label>
+    <label for="misc"><input type="checkbox" id="misc" /> <span>Diversos</span></label>
+    <label for="pringles"><input type="checkbox" id="pringles" /> <span>GM Krikor</span></label>
     <label for="laughs"><input type="checkbox" id="laughs" /> <span>Risadas</span></label>
     <label for="greetings"><input type="checkbox" id="greetings" /> <span>Saudações</span></label>
   </div>
   <div class="increment">    
     <label for="lvolume">Volume de Risadas:</label>
-    <input type="number" id="lvolume" placeholder="0.4" name="lvolume" step="0.1" min="0.0" max="1">
+    <input type="number" id="lvolume" placeholder="0.4" name="lvolume" step="0.1" min="0.0" max="1">    
     <label for="gvolume">Volume de Saudações:</label>
     <input type="number" id="gvolume" placeholder="0.4" name="gvolume" step="0.1" min="0.0" max="1">
     <label for="mvolume">Volume de Diversos:</label>
     <input type="number" id="mvolume" placeholder="1.0" name="mvolume" step="0.1" min="0.0" max="1">
   </div>
-
+  <h3>teste risadas </h3>
+  <p></p>
+      <div class="essential_audio" id="1" data-url="KEKWcut-40.mp3">
+      <span class="no_js">Please activate JavaScript for the audio player.</span>
+    </div>
+  <div class="emote">
+    <img src="https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/1x" srcset="https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/2x 2x, https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/3x 4x" alt="KEKW" class="chat-line__message--emote bttv-emote-image">
+    </div>
   <script src="options.js"></script>
 </body>
