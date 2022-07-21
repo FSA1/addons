@@ -167,7 +167,7 @@ function randomLink(links) {
     return rLink;
 }
 //image to indicate the app get some word/expression
-const audioSymbol = '<img style="display: block; user-select: none; margin: left;  width: 24px;" src="' + selectedServer + 'emotes/audio-on-small-'+colorScheme+'.gif"> '
+const audioSymbol = '<img style="display: block; user-select: none; margin: left;  width: 16px;" src="' + selectedServer + 'emotes/audio-on-small-'+colorScheme+'.gif"> '
 
 //function for betterTTV images
 function bttvEmo(codeBTTV, altText) {
@@ -237,7 +237,7 @@ const soundmsg = (message) => {
     //stop sound
     if (message.match(/stop/gu)) {
         miscSound.pause();
-        return ''
+        return randomLink([myEmote('20%', 'mute-icon.png'), myEmote('30%', 'mute-icon2.png'), myEmote('30%', 'stop-light.jpg')])
     }//minúsculo usa emote alternativo, animado
     if (message.match(/(KEKW([ ]{0,1})){1,}/gu)) {
         playRandomSound([kekw], laughsVol, 'laughs')
