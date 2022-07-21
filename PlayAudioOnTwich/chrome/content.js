@@ -328,7 +328,6 @@ const soundmsg = (message) => {
     if (message.match(/\ba?cab([o]){2,}([hu ]){0,}\b!?|[eéh ]{0,}\bt[eé]{1,}tr[a]{1,}\b!?/gui)) {
         playRandomSound([tetra], laughsVol, 'laughs')
         return randomLink([myEmote('30%', 'Acyr-comemorando.gif'), tenorEmo('30%', 'YAuoFbHA7SAAAAAd/tetra-futebol'), tenorEmo('32px', '1J-n2oBWMa8AAAAi/peepo-brazil'), tenorEmo('30%', '53mmUaqb1b0AAAAC/copa-torcedor'), anySiteEmo('30%', 'https://thumbs.gfycat.com/SolidEasygoingAlaskajingle-size_restricted.gif'), anySiteEmo('30%', 'https://pa1.narvii.com/7243/fe3792bdc48b91754f8678c7fc78f11502e804e9r1-480-270_hq.gif')]) + message
-
     }//Musica da vitória
     if (message.match(/senna/gui)) {
         playRandomSound([senna], miscVol, 'misc')
@@ -367,7 +366,7 @@ const soundmsg = (message) => {
         return '<a class="funny-sound">🔊</a> ' + message
     }//Krikor, Grikor, Grigor, Pringles
     if (message.match(/([KG]ri[kg]or?[A-z]{0,}|Pringles)/gui)) {
-        return randomLink([myPers('30%', 'Krikor.gif'), myPers('30%', 'Krikor2.gif'), myPers('30%', 'Krikor3.gif'), myPers('30%', 'Krikor4.gif'), myEmote('30%', 'Krikor5.gif')]) + message
+        return randomLink([myPers('30%', 'Krikor.png'), myPers('30%', 'Krikor2.png'), myPers('30%', 'Krikor3.png'), myPers('30%', 'Krikor4.png'), myEmote('30%', 'Krikor5.png')]) + message
     }//RafPig 'tchau daminha!'
     if (message.match(/tchau ?daminha/gui)) {
         playRandomSound([tchaudaminha], miscVol, 'misc')
