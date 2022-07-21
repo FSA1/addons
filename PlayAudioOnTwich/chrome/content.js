@@ -160,44 +160,40 @@ function playRandomSound(audioLinks, vol, type) {
             miscSound.src = audioLinks[Math.floor(Math.random() * audioLinks.length)];
             miscSound.volume = vol;
             miscSound.play();
-            //console.log('vol: ' + vol + 'misc: ' + miscVol + 'pausado? ' + miscSound.paused)
     }
 }
 function randomLink(links) {
-
     const rLink = links[Math.floor(Math.random() * links.length)];
     return rLink;
 }
 //function for betterTTV images
 function bttvEmo(codeBTTV, altText) {
-    const bttHTML = '<a class="funny-sound">🔊</a> <img src="https://cdn.betterttv.net/emote/' + codeBTTV + '/1x" srcset="https://cdn.betterttv.net/emote/' + codeBTTV + '/2x 2x, https://cdn.betterttv.net/emote/' + codeBTTV + '/3x 4x" alt="' + altText + '" class="chat-line__message--emote bttv-emote-image">  &nbsp';
+    const bttHTML = '<a class="funny-sound">🎵</a> <img src="https://cdn.betterttv.net/emote/' + codeBTTV + '/1x" srcset="https://cdn.betterttv.net/emote/' + codeBTTV + '/2x 2x, https://cdn.betterttv.net/emote/' + codeBTTV + '/3x 4x" alt="' + altText + '" class="chat-line__message--emote bttv-emote-image">  &nbsp';
     return bttHTML;
 }
 //function for native Twitch betterTTV images
-//https://static-cdn.jtvnw.net/emoticons/v2/<id>/<format>/<theme_mode>/<scale>
 function bttvEmoV2(codeBTTVv2, altText) {
-    const bttv2HTML = '<a class="funny-sound">🔊</a> <span class="bttv-message-container">  <img alt="' + altText + '" class="chat-image chat-line__message--emote" src="https://static-cdn.jtvnw.net/emoticons/v2/' + codeBTTVv2 + '/default/' + colorScheme + '/1.0" srcset="https://static-cdn.jtvnw.net/emoticons/v2/' + codeBTTVv2 + '/default/' + colorScheme + '/1.0 1x,https://static-cdn.jtvnw.net/emoticons/v2/' + codeBTTVv2 + '/default/' + colorScheme + '/2.0 2x,https://static-cdn.jtvnw.net/emoticons/v2/' + codeBTTVv2 + '/default/' + colorScheme + '/3.0 4x"> </span> &nbsp';
+    const bttv2HTML = '<a class="funny-sound">🎵</a> <span class="bttv-message-container">  <img alt="' + altText + '" class="chat-image chat-line__message--emote" src="https://static-cdn.jtvnw.net/emoticons/v2/' + codeBTTVv2 + '/default/' + colorScheme + '/1.0" srcset="https://static-cdn.jtvnw.net/emoticons/v2/' + codeBTTVv2 + '/default/' + colorScheme + '/1.0 1x,https://static-cdn.jtvnw.net/emoticons/v2/' + codeBTTVv2 + '/default/' + colorScheme + '/2.0 2x,https://static-cdn.jtvnw.net/emoticons/v2/' + codeBTTVv2 + '/default/' + colorScheme + '/3.0 4x"> </span> &nbsp';
     return bttv2HTML;
 }
 //function for tenor images
 function tenorEmo(widthPercent, tenorCodBarImgName) {
-    //<img style="display: block; user-select: none; margin: left;  width: 30%" src="https://c.tenor.com/mlmBfvRo0FsAAAAd/salve-rapaziada-ninjas-in-pyjamas.gif"> '
-    const tenorEmoHTML = '<a class="funny-sound">🔊</a> <img style="display: block; user-select: none; margin: left;  width: ' + widthPercent + '" src="https://c.tenor.com/' + tenorCodBarImgName + '.gif">  &nbsp';
+    const tenorEmoHTML = '<a class="funny-sound">🎵</a> <img style="display: block; user-select: none; margin: left;  width: ' + widthPercent + '" src="https://c.tenor.com/' + tenorCodBarImgName + '.gif">  &nbsp';
     return tenorEmoHTML;
 }
 //function for images hosted by Me
 function myEmote(widthPercent, imgNameAndExt) {
-    const emoteHTML = '<a class="funny-sound">🔊</a> <img style="display: block; user-select: none; margin: left;  width: ' + widthPercent + '" src="' + selectedServer + 'emotes/' + imgNameAndExt + '">  &nbsp';
+    const emoteHTML = '<a class="funny-sound">🎵</a> <img style="display: block; user-select: none; margin: left;  width: ' + widthPercent + '" src="' + selectedServer + 'emotes/' + imgNameAndExt + '">  &nbsp';
     return emoteHTML;
 }
 //function for images from arbitrary urls
 function anySiteEmo(widthPercent, fullURL) {
-    const emoteHTML = '<a class="funny-sound">🔊</a> <img style="display: block; user-select: none; margin: left;  width: ' + widthPercent + '" src="' + fullURL + '">  &nbsp';
+    const emoteHTML = '<a class="funny-sound">🎵</a> <img style="display: block; user-select: none; margin: left;  width: ' + widthPercent + '" src="' + fullURL + '">  &nbsp';
     return emoteHTML;
 }
 //function for personalities images hosted by Me
 function myPers(widthPercent, imgNameAndExt) {
-    const persHTML = '<a class="funny-sound">🔊</a> <img style="display: block; user-select: none; margin: left;  width: ' + widthPercent + '" src="' + selectedServer + 'personalities/chess/' + imgNameAndExt + '">  &nbsp';
+    const persHTML = '<a class="funny-sound">🎵</a> <img style="display: block; user-select: none; margin: left;  width: ' + widthPercent + '" src="' + selectedServer + 'personalities/chess/' + imgNameAndExt + '">  &nbsp';
     return persHTML;
 }
 // Recursive function to check if the Twitch chat contains messages
@@ -211,7 +207,7 @@ function addObserverIfDesiredNodeAvailable() {
     })
 }
 
-// Main function for replacing the Chess moves with the funny-sound HTML element
+// Main function for replacing words and expressions with the funny-sound HTML element
 const callback = function (mutationsList, observer) {
     Array.from(mutationsList).forEach(mutation => {
         checkSettings();
@@ -294,11 +290,11 @@ const soundmsg = (message) => {
     }//Safado!
     if (message.match(/\bSafado\b!?/gui)) {
         playRandomSound([safado1, safado2], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a>&nbsp ' + message
+        return '<a class="funny-sound">🎵</a>&nbsp ' + message
     }//Oh Cacilda!
     if (message.match(/\b(oh?)? ?cacilda\b!?/gui)) {
         playRandomSound([cacilda1, cacilda2], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a>&nbsp ' + message
+        return '<a class="funny-sound">🎵</a>&nbsp ' + message
     }//Tilt
     if (message.match(/tilt[A-z]{0,}/gui)) {
         playRandomSound([shutdownxp], laughsVol, 'laughs')
@@ -335,42 +331,42 @@ const soundmsg = (message) => {
     }//Alexandra Botez 'vamos!' em espanhol
     if (message.match(/\bbamos\b!/gui)) {
         playRandomSound([bamos], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }//Rafael Leite 'Dá mate logo...'
     if (message.match(/(da ?mate ?logo)/gui)) {
         playRandomSound([damatelogo], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }//Krikor 'Aí é flórida!'
     if (message.match(/(a[ií])? ?é fl[oó]rida/gui)) {
         playRandomSound([florida], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }//Krikor 'Boa tarde[...] menos pra você que joga londres
     if (message.match(/londres!/gui)) {
         playRandomSound([londres], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }//Nakamura Oh c'mon!
     if (message.match(/oh ?c'?mon/gui)) {
         playRandomSound([ohcmon], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }//Krikor 'eu to pior já'
     if (message.match(/(eu ?)?to ?pior( ?j[aá])?/gui)) {
         playRandomSound([topior, topior2], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }//Krikor 'Muito bom, nota zero'
     if (message.match(/nota ?zero/gui)) {
         playRandomSound([notazero], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }//RafPig 'Eu vou processar o Krikor'
     if (message.match(/(eu )?[voôu]{2,3} ?processar ?[oa]?/gui)) {
         playRandomSound([vouprocessarokrikor], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }//Krikor, Grikor, Grigor, Pringles
     if (message.match(/([KG]ri[kg]or?[A-z]{0,}|Pringles)/gui)) {
         return randomLink([myPers('30%', 'Krikor.png'), myPers('30%', 'Krikor2.png'), myPers('30%', 'Krikor3.png'), myPers('30%', 'Krikor4.png'), myEmote('30%', 'Krikor5.png')]) + message
     }//RafPig 'tchau daminha!'
     if (message.match(/tchau ?daminha/gui)) {
         playRandomSound([tchaudaminha], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }//emote modCheck (para o caso do canal assistido não ter)
     if (message.match(/(modCheck)/gui)) {
         //não tem som planejado para este emote
@@ -382,11 +378,11 @@ const soundmsg = (message) => {
     }//Krikor 'Roubei nessa partida'
     if (message.match(/roubei ?nessa ?(partida)?/gui)) {
         playRandomSound([roubeinessapartida], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }//Krikor 'O cara ta roubando', 'Claramente roubando', 'Cheating'
     if (message.match(/(o ?cara ?)?t[aá] ?ro(u)?bando|claramente ?roubando|cheating/gui)) {
         playRandomSound([ocarataroubando, claramenteroubando, engine], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }//Na rússia isso dá cadeia
     if (message.match(/(isso)? ?n[ao] russia [A-zÀ-ú ,.]{0,} cadeia/gui)) {
         playRandomSound([batidasnaporta], miscVol, 'misc')
@@ -394,35 +390,35 @@ const soundmsg = (message) => {
     }//Krikor sobre defesa francesa e Caro-Kann 'Não magoar as pessoas', 'jogar francesa', 'jogar Caro-Kann'
     if (message.match(/n[aã]o ?magoar( as)? ?pessoas|jogar? [kc]aro[ -]?[kc]ann?|jogar? francesa/gui)) {
         playRandomSound([naomagoarpessoas], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }//Krikor 'Caraca G4'
     if (message.match(/caraca ?g4/gui)) {
         caracag4.play();
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }//Krikor 'G4 grobiano', 'Grobiano raiz'
     if (message.match(/grobiano ?raiz|g4 ?grobiano/gui)) {
         playRandomSound([grobianoraiz], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }//Krikor 'Lance!'
     if (message.match(/lance!/gui)) {
         playRandomSound([jogamaisrapido, acelerameufilho, queroquecefacalance, andameufilho], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }//Krikor 'premove aloprado'
     if (message.match(/premove ?aloprado/gui)) {
         playRandomSound([quepremovealoprado], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }//Krikor 'seis mil lances'
     if (message.match(/(seis|[0-9]{1,})( ?k?| ?mil)? ?lances?/gui)) {
         playRandomSound([seisklances], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }//Krikor 'pindura meu Deus', 'pindura desgraça', 'pindura maldito'
     if (message.match(/p[ei]ndura[A-z]{0,}/gui)) {
         playRandomSound([pinduramds, pinduradesgraca, pinduramaldito], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }//Musica triste: 'Sadness and Sorrow', 'final triste', 'perdemo'
     if (message.match(/((sadness)( ){0,}and( ){0,}sorrow|(final)( ){0,}triste|perdemo!?)/gui)) {
         playRandomSound([sadnessandsorrow], miscVol, 'misc')
-        return '<a class="funny-sound">🔊</a> ' + message
+        return '<a class="funny-sound">🎵</a> ' + message
     }
 
 }
