@@ -139,7 +139,6 @@ const naomagoarpessoas = selectedServer + 'audio/GMKrikor/naomagoarpessoas.MP3';
 // Global variable to track the RegEx in use
 var selectedRegEx;
 
-//An array to house all of the URLs of your sounds
 // play random sounds
 function playRandomSound(audioLinks, vol, type) {
 
@@ -328,12 +327,12 @@ const soundmsg = (message) => {
     }//Acabou!, é tetra!
     if (message.match(/\ba?cab([o]){2,}([hu ]){0,}\b!?|[eéh ]{0,}\bt[eé]{1,}tr[a]{1,}\b!?/gui)) {
         playRandomSound([tetra], laughsVol, 'laughs')
-        return randomLink([tenorEmo('30%', 'YAuoFbHA7SAAAAAd/tetra-futebol'), tenorEmo('32px', '1J-n2oBWMa8AAAAi/peepo-brazil'), tenorEmo('30%', '53mmUaqb1b0AAAAC/copa-torcedor'), anySiteEmo('30%', 'https://thumbs.gfycat.com/SolidEasygoingAlaskajingle-size_restricted.gif'), anySiteEmo('30%', 'https://pa1.narvii.com/7243/fe3792bdc48b91754f8678c7fc78f11502e804e9r1-480-270_hq.gif')]) + message
+        return randomLink([myEmote('30%', 'Acyr-comemorando.gif'), tenorEmo('30%', 'YAuoFbHA7SAAAAAd/tetra-futebol'), tenorEmo('32px', '1J-n2oBWMa8AAAAi/peepo-brazil'), tenorEmo('30%', '53mmUaqb1b0AAAAC/copa-torcedor'), anySiteEmo('30%', 'https://thumbs.gfycat.com/SolidEasygoingAlaskajingle-size_restricted.gif'), anySiteEmo('30%', 'https://pa1.narvii.com/7243/fe3792bdc48b91754f8678c7fc78f11502e804e9r1-480-270_hq.gif')]) + message
 
     }//Musica da vitória
     if (message.match(/senna/gui)) {
         playRandomSound([senna], miscVol, 'misc')
-        return tenorEmo('32px', '1J-n2oBWMa8AAAAi/peepo-brazil')
+        return randomLink([myEmote('30%', 'Acyr-comemorando.gif'), tenorEmo('32px', '1J-n2oBWMa8AAAAi/peepo-brazil')])
     }//Alexandra Botez 'vamos!' em espanhol
     if (message.match(/\bbamos\b!/gui)) {
         playRandomSound([bamos], miscVol, 'misc')
