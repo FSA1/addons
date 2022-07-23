@@ -64,13 +64,13 @@ const chat = document.getElementsByClassName('chat-scrollable-area__message-cont
 var regexLaughs = new RegExp(/\b((KEKW([ ]{0,1})){1,}|k{3,}|([khae ]){6,}|((ja)( ){0,1}){3,}|(s+[hua]{2,})+|palmas|app?laus[eo]s|[A-z]{0,}(Clap( {0,})){1,})\b|\b(omega)?[l][ou]{1,}[l]{1,}\b[!]{0,}/g, 'gui')
 
 // Regular expression for the greetings
-var regexGreetings = new RegExp(/^(bo[ma] (dia|tarde|noite))!?/g, 'gui')
+var regexGreetings = new RegExp(/^(bo[ma] (dia|tarde|noite))!?|Salve.{0,2}/g, 'gui')
 
 // Regular expression for the  GMKrikor channel
 var regexPringles = new RegExp(/\b(Pringles|fot(o){0,1}(inh[oa]){0,1} de anime|n[aã]o ?magoar( as)? ?pessoas|jogar? [kc]aro[ -]?[kc]ann?|jogar? francesa|caraca ?g4|g4 ?grobiano|grobiano ?raiz|premove ?aloprado|(seis|[0-9]{1,})( ?k?| ?mil)? ?lances?|p[ei]ndura[A-z]{0,}|da ?mate ?logo|oh ?c'?mon|(eu ?)?to ?pior( ?j[aá])?|to ?melhor( ?j[aá])?|nota ?zero|[KG]ri[kg]or?[A-z]{0,}|roubei ?nessa ?(partida)?|(o ?cara ?)?t[aá] ?ro(u)?bando|claramente ?roubando|^(mds|mjc|msca)$)\b|\b(oh?)? ?cacilda\b!?|\bbamos\b!?|\bperdemo\b!?|\bSafado\b!?|lance!|(eu )?[voôu]{2,3} ?processar ?[oa]?|(a[ií])? ?é fl[oó]rida|\blondres\b!|\bsaudaç[õo]es ?noturnas?\b!?/g, 'gui')
 
 // Regular expression for general terms and expressions
-var regexMisc = new RegExp(/\b(MLADY|modCheck|(isso)? ?n[ao] russia [A-zÀ-ú ,.]{0,} cadeia|Raff?a?(el)? ?Pig|Raff?ael Leitão|Salve.{0,2}|senna|Ding( Liren)?|Magnus( Carlsen)?|(Hikaru )?Naka(mura)?|(Ian )?Nepo([A-z]{0,})|Raff?a?(el)? ?Chess|wh([a]){2,}t[?]{0,}|o? ?qu(e){3,}[?]{0,}|q{4,}|en[gja]{1,2}ine|stockfish|(stock){0,1}peixe|barri(lda|nha)|tilt[A-z]{0,}|tchau ?daminha|(final)( ){0,}triste|(sadness)( ){0,}and( ){0,}sorrow|cheating)\b|\ba?cab([o]){2,}([hu ]){0,}\b!?|[eéh ]{0,}\bt[eé]{1,}tr[a]{1,}\b!?|!\bstop\b/g, 'gui')
+var regexMisc = new RegExp(/\b(MLADY|modCheck|(isso)? ?n[ao] russia [A-zÀ-ú ,.]{0,} cadeia|Raff?a?(el)? ?Pig|Raff?ael Leitão|senna|Ding( Liren)?|Magnus( Carlsen)?|(Hikaru )?Naka(mura)?|(Ian )?Nepo([A-z]{0,})|Raff?a?(el)? ?Chess|wh([a]){2,}t[?]{0,}|o? ?qu(e){3,}[?]{0,}|q{4,}|en[gja]{1,2}ine|stockfish|(stock){0,1}peixe|barri(lda|nha)|tilt[A-z]{0,}|tchau ?daminha|(final)( ){0,}triste|(sadness)( ){0,}and( ){0,}sorrow|cheating)\b|\ba?cab([o]){2,}([hu ]){0,}\b!?|[eéh ]{0,}\bt[eé]{1,}tr[a]{1,}\b!?|!\bstop\b/g, 'gui')
 
 // Enable the mutation observer to observe the child elements of the Twitch chat, the chat messages
 var mutationConfig = { childList: true };
@@ -171,32 +171,32 @@ const audioSymbol = '<img style="display: block; user-select: none; margin: left
 
 //function for betterTTV images
 function bttvEmo(codeBTTV, altText) {
-    const bttHTML = '<a class="funny-sound">'+audioSymbol+'</a> <img src="https://cdn.betterttv.net/emote/' + codeBTTV + '/1x" srcset="https://cdn.betterttv.net/emote/' + codeBTTV + '/2x 2x, https://cdn.betterttv.net/emote/' + codeBTTV + '/3x 4x" alt="' + altText + '" class="chat-line__message--emote bttv-emote-image">  &nbsp';
+    const bttHTML = '<img src="https://cdn.betterttv.net/emote/' + codeBTTV + '/1x" srcset="https://cdn.betterttv.net/emote/' + codeBTTV + '/2x 2x, https://cdn.betterttv.net/emote/' + codeBTTV + '/3x 4x" alt="' + altText + '" class="chat-line__message--emote bttv-emote-image">  &nbsp;';
     return bttHTML;
 }
 //function for native Twitch betterTTV images
 function bttvEmoV2(codeBTTVv2, altText) {
-    const bttv2HTML = '<a class="funny-sound">'+audioSymbol+'</a> <span class="bttv-message-container">  <img alt="' + altText + '" class="chat-image chat-line__message--emote" src="https://static-cdn.jtvnw.net/emoticons/v2/' + codeBTTVv2 + '/default/' + colorScheme + '/1.0" srcset="https://static-cdn.jtvnw.net/emoticons/v2/' + codeBTTVv2 + '/default/' + colorScheme + '/1.0 1x,https://static-cdn.jtvnw.net/emoticons/v2/' + codeBTTVv2 + '/default/' + colorScheme + '/2.0 2x,https://static-cdn.jtvnw.net/emoticons/v2/' + codeBTTVv2 + '/default/' + colorScheme + '/3.0 4x"> </span> &nbsp';
+    const bttv2HTML = '<span class="bttv-message-container">  <img alt="' + altText + '" class="chat-image chat-line__message--emote" src="https://static-cdn.jtvnw.net/emoticons/v2/' + codeBTTVv2 + '/default/' + colorScheme + '/1.0" srcset="https://static-cdn.jtvnw.net/emoticons/v2/' + codeBTTVv2 + '/default/' + colorScheme + '/1.0 1x,https://static-cdn.jtvnw.net/emoticons/v2/' + codeBTTVv2 + '/default/' + colorScheme + '/2.0 2x,https://static-cdn.jtvnw.net/emoticons/v2/' + codeBTTVv2 + '/default/' + colorScheme + '/3.0 4x"> </span> &nbsp;';
     return bttv2HTML;
 }
 //function for tenor images
 function tenorEmo(widthPercent, tenorCodBarImgName) {
-    const tenorEmoHTML = '<a class="funny-sound">'+audioSymbol+'</a> <img style="display: block; user-select: none; margin: left;  width: ' + widthPercent + '" src="https://c.tenor.com/' + tenorCodBarImgName + '.gif">  &nbsp';
+    const tenorEmoHTML = '<img style="display: block; user-select: none; margin: left;  width: ' + widthPercent + '" src="https://c.tenor.com/' + tenorCodBarImgName + '.gif">  &nbsp;';
     return tenorEmoHTML;
 }
 //function for images hosted by Me
 function myEmote(widthPercent, imgNameAndExt) {
-    const emoteHTML = '<a class="funny-sound">'+audioSymbol+'</a> <img style="display: block; user-select: none; margin: left;  width: ' + widthPercent + '" src="' + selectedServer + 'emotes/' + imgNameAndExt + '">  &nbsp';
+    const emoteHTML = '<img style="display: block; user-select: none; margin: left;  width: ' + widthPercent + '" src="' + selectedServer + 'emotes/' + imgNameAndExt + '">  &nbsp;';
     return emoteHTML;
 }
 //function for images from arbitrary urls
 function anySiteEmo(widthPercent, fullURL) {
-    const emoteHTML = '<a class="funny-sound">'+audioSymbol+'</a> <img style="display: block; user-select: none; margin: left;  width: ' + widthPercent + '" src="' + fullURL + '">  &nbsp';
+    const emoteHTML = '<img style="display: block; user-select: none; margin: left;  width: ' + widthPercent + '" src="' + fullURL + '">  &nbsp;';
     return emoteHTML;
 }
 //function for personalities images hosted by Me
 function myPers(widthPercent, imgNameAndExt) {
-    const persHTML = '<a class="funny-sound">'+audioSymbol+'</a> <img style="display: block; user-select: none; margin: left;  width: ' + widthPercent + '" src="' + selectedServer + 'personalities/chess/' + imgNameAndExt + '">  &nbsp';
+    const persHTML = '<img style="display: block; user-select: none; margin: left;  width: ' + widthPercent + '" src="' + selectedServer + 'personalities/chess/' + imgNameAndExt + '">  &nbsp;';
     return persHTML;
 }
 // Recursive function to check if the Twitch chat contains messages
@@ -209,7 +209,6 @@ function addObserverIfDesiredNodeAvailable() {
         observer.observe(x, mutationConfig)
     })
 }
-
 // Main function for replacing words and expressions with the funny-sound HTML element
 const callback = function (mutationsList, observer) {
     Array.from(mutationsList).forEach(mutation => {
@@ -220,7 +219,7 @@ const callback = function (mutationsList, observer) {
                 if (!newestMessage.includes('<a class="funny-sound">')) {
                     if (selectedRegEx != null) {
                         mutation.target.getElementsByClassName('text-fragment')[mutation.target.getElementsByClassName('text-fragment').length - 1].innerHTML = newestMessage.replace(selectedRegEx, function (message) {
-                            return soundmsg(message);
+                            return '<a class="funny-sound">'+audioSymbol+'</a>' + soundmsg(message);
                         })
                     }
                 }

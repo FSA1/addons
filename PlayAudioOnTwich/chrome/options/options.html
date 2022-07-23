@@ -1,34 +1,51 @@
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <link rel="stylesheet" href="options.css">
-  <link rel="stylesheet" href="essential_audio.css" />
-  <script src="essential_audio.js"></script>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
 </head>
 
 <body>
-  <h3>Play Audio on Twitch</h3>
-  <h4>Ativar/Desativar Audios</h4>
-  <div class="checkboxes">
-    <label for="misc"><input type="checkbox" id="misc" /> <span>Diversos</span></label>
-    <label for="pringles"><input type="checkbox" id="pringles" /> <span>GM Krikor</span></label>
-    <label for="laughs"><input type="checkbox" id="laughs" /> <span>Risadas</span></label>
-    <label for="greetings"><input type="checkbox" id="greetings" /> <span>Saudações</span></label>
-  </div>
-  <div class="increment">    
-    <label for="lvolume">Volume de Risadas:</label>
-    <input type="number" id="lvolume" placeholder="0.4" name="lvolume" step="0.1" min="0.0" max="1">    
-    <label for="gvolume">Volume de Saudações:</label>
-    <input type="number" id="gvolume" placeholder="0.4" name="gvolume" step="0.1" min="0.0" max="1">
-    <label for="mvolume">Volume de Diversos:</label>
-    <input type="number" id="mvolume" placeholder="1.0" name="mvolume" step="0.1" min="0.0" max="1">
-  </div>
-  <h3>teste risadas </h3>
-  <p></p>
-      <div class="essential_audio" id="1" data-url="KEKWcut-40.mp3">
-      <span class="no_js">Please activate JavaScript for the audio player.</span>
-    </div>
-  <div class="emote">
-    <img src="https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/1x" srcset="https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/2x 2x, https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/3x 4x" alt="KEKW" class="chat-line__message--emote bttv-emote-image">
-    </div>
-  <script src="options.js"></script>
+  <main class="fancy">
+      <div>
+          <h3>
+              Ative os tipos de audio<br /> que deseja ouvir<br />
+
+          </h3>
+
+          <div class="checkboxes">
+              <label for="misc"><input type="checkbox" id="misc" /> <span>Diversos</span></label><br />
+              <label for="pringles"><input type="checkbox" id="pringles" /> <span>GM Krikor</span></label><br />
+              <label for="laughs"><input type="checkbox" id="laughs" /> <span>Risadas</span></label><br />
+              <label for="greetings"><input type="checkbox" id="greetings" /> <span>Saudações</span></label><br />
+          </div>
+          <h3>
+              Ajuste o volume de<br />cada tipo de audio<br />
+
+          </h3>
+          <div class="increment">
+              <label for="lvolume">Volume de Risadas:</label><br />
+              <input type="range" id="lvolume" placeholder="0.4" name="lvolume" step="0.1" min="0.0" max="1">
+              <div class="emote">
+                  <img src="https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/1x"
+                      srcset="https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/2x 2x, https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/3x 4x"
+                      alt="KEKW" class="chat-line__message--emote bttv-emote-image">
+              </div>
+              <label for="gvolume">Volume de Saudações:</label><br />
+              <input type="range" id="gvolume" placeholder="0.4" name="gvolume" step="0.1" min="0.0" max="1">
+              <div class="emote">
+                  <img src="https://cdn.betterttv.net/emote/60f4077a2d1eba5400d03484/1x"
+                      srcset="https://cdn.betterttv.net/emote/60f4077a2d1eba5400d03484/2x 2x, https://cdn.betterttv.net/emote/60f4077a2d1eba5400d03484/3x 4x"
+                      alt="peepoHey" class="chat-line__message--emote bttv-emote-image">
+              </div>
+              <label for="mvolume">Volume de Diversos:</label><br />
+              <input type="range" id="mvolume" placeholder="1.0" name="mvolume" step="0.1" min="0.0" max="1">
+              <div class="emote">
+                  <img src="https://cdn.betterttv.net/emote/5feaae3d66689834fd5a26cb/1x"
+                      srcset="https://cdn.betterttv.net/emote/5feaae3d66689834fd5a26cb/2x 2x, https://cdn.betterttv.net/emote/5feaae3d66689834fd5a26cb/3x 4x"
+                      alt="peepoHey" class="chat-line__message--emote bttv-emote-image">
+              </div>
+          </div>
+      </div>
+      <script src="options.js"></script>
+  </main>
 </body>
