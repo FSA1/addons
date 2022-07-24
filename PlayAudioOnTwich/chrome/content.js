@@ -68,7 +68,7 @@ if (OnOff===true) {
 const chat = document.getElementsByClassName('chat-scrollable-area__message-container');
 
 // Regular expression for the laughs
-var regexLaughs = new RegExp(/\b((KEKW([ ]{0,1})){1,}|k{3,}|([khae ]){6,}|((ja)( ){0,1}){3,}|(s+[hua]{2,})+|palmas|app?laus[eo]s|[A-z]{0,}(Clap( {0,})){1,})\b|\b(omega)?[l][ou]{1,}[l]{1,}\b[!]{0,}/g, 'gui')
+var regexLaughs = new RegExp(/\b((KEKW([ ]{0,1})){1,}|k{3,}|([khae ]){6,}|((ja)( ){0,1}){3,}|(s+[hua]{2,}){2,}|palmas|app?laus[eo]s|[A-z]{0,}(Clap( {0,})){1,})\b|\b(omega)?[l][ou]{1,}[l]{1,}\b[!]{0,}/g, 'gui')
 
 // Regular expression for the greetings
 var regexGreetings = new RegExp(/^(bo[ma] (dia|tarde|noite))!?|Salve.{0,2}/g, 'gui')
@@ -253,7 +253,7 @@ const soundmsg = (message) => {
         playRandomSound([kekw], laughsVol, 'laughs')
         return bttvEmo('62b2898c65092c1291b963e1', 'KEKW')
     }//kkkk, hahaha, hehehe, jajaja, LOL, lul (LUL maiúsculo não é capturado, infelizmente)
-    if (message.match(/(k{3,}|([khae ]){6,}|((ja) ?){3,}|(s+[hua]{2,})+|\b(omega)?[l][ou]{1,}[l]{1,}\b[!]{0,})/gui)) {
+    if (message.match(/(k{3,}|([khae ]){6,}|((ja) ?){3,}|(s+[hua]{2,}){2,}|\b(omega)?[l][ou]{1,}[l]{1,}\b[!]{0,})/gui)) {
         playRandomSound([hahaha, hahaha2, hahaha3, hahaha4, hahaha5], laughsVol, 'laughs')
         return bttvEmoV2('425618', 'LUL')
     }//\bvergonh[A-z]{0,}\b!?
