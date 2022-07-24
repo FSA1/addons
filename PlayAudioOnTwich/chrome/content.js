@@ -70,7 +70,7 @@ var regexGreetings = new RegExp(/^(bo[ma] (dia|tarde|noite))!?|Salve.{0,2}/g, 'g
 var regexPringles = new RegExp(/\b(Pringles|fot(o){0,1}(inh[oa]){0,1} de anime|n[aã]o ?magoar( as)? ?pessoas|jogar? [kc]aro[ -]?[kc]ann?|jogar? francesa|caraca ?g4|g4 ?grobiano|grobiano ?raiz|premove ?aloprado|(seis|[0-9]{1,})( ?k?| ?mil)? ?lances?|p[ei]ndura[A-z]{0,}|da ?mate ?logo|oh ?c'?mon|(eu ?)?to ?pior( ?j[aá])?|to ?melhor( ?j[aá])?|nota ?zero|[KG]ri[kg]or?[A-z]{0,}|roubei ?nessa ?(partida)?|(o ?cara ?)?t[aá] ?ro(u)?bando|claramente ?roubando|^(mds|mjc|msca)$)\b|\b(oh?)? ?cacilda\b!?|\bbamos\b!?|\bperdemo\b!?|\bSafado\b!?|lance!|(eu )?[voôu]{2,3} ?processar ?[oa]?|(a[ií])? ?é fl[oó]rida|\blondres\b!|\bsaudaç[õo]es ?noturnas?\b!?/g, 'gui')
 
 // Regular expression for general terms and expressions
-var regexMisc = new RegExp(/\b(MLADY|modCheck|(isso)? ?n[ao] russia [A-zÀ-ú ,.]{0,} cadeia|Raff?a?(el)? ?Pig|Raff?ael Leitão|senna|Ding( Liren)?|Magnus( Carlsen)?|(Hikaru )?Naka(mura)?|(Ian )?Nepo([A-z]{0,})|Raff?a?(el)? ?Chess|wh([a]){2,}t[?]{0,}|o? ?qu(e){3,}[?]{0,}|q{4,}|en[gja]{1,2}ine|stockfish|(stock){0,1}peixe|barri(lda|nha)|tilt[A-z]{0,}|tchau ?daminha|(final)( ){0,}triste|(sadness)( ){0,}and( ){0,}sorrow|cheating)\b|\ba?cab([o]){2,}([hu ]){0,}\b!?|[eéh ]{0,}\bt[eé]{1,}tr[a]{1,}\b!?|!\bstop\b/g, 'gui')
+var regexMisc = new RegExp(/\b(MLADY|modCheck|(isso)? ?n[ao] russia [A-zÀ-ú ,.]{0,} cadeia|Raff?a?(el)? ?Pig|Raff?ael Leitão|senna|Ding( Liren)?|Magnus( Carlsen)?|(Hikaru )?Naka(mura)?|(Ian )?Nepo([A-z]{0,})|Raff?a?(el)? ?Chess|wh([a]){2,}t[?]{0,}|o? ?qu(e){3,}[?]{0,}|q{4,}|en[gja]{1,2}ine|stockfish|(stock){0,1}peixe|barri(lda|nha)|tilt[A-z]{0,}|tchau ?daminha|(final)( ){0,}triste|(sadness)( ){0,}and( ){0,}sorrow|cheating)\b|\ba?cab([o]){2,}([hu ]){0,}\b!?|[eéh ]{0,}\bt[eé]{1,}tr[a]{1,}\b!?|!\bstop\b|\bvergonh[A-z]{0,}\b!?/g, 'gui')
 
 // Enable the mutation observer to observe the child elements of the Twitch chat, the chat messages
 var mutationConfig = { childList: true };
@@ -249,6 +249,10 @@ const soundmsg = (message) => {
     if (message.match(/(k{3,}|([khae ]){6,}|((ja) ?){3,}|(s+[hua]{2,})+|\b(omega)?[l][ou]{1,}[l]{1,}\b[!]{0,})/gui)) {
         playRandomSound([hahaha, hahaha2, hahaha3, hahaha4, hahaha5], laughsVol, 'laughs')
         return bttvEmoV2('425618', 'LUL')
+    }//\bvergonh[A-z]{0,}\b!?
+    if (message.match(/(\bvergonh[A-z]{0,}\b!?)/gui)) {
+        playRandomSound([vergonhadaprofession], miscVol, 'misc')
+        return randomLink([myEmote('30%', 'clap.gif'), myEmote('30%', 'clap2.gif'), myEmote('30%', 'clap3.gif'), myEmote('30%', 'clap4.gif'), myEmote('30%', 'clap5.gif')]) + message
     }
     //palmas PT e En
     if (message.match(/(palmas|[A-z]{0,}(Clap( {0,})){1,}|aplausos|applauses)/gui)) {

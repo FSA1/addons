@@ -53,3 +53,52 @@ document.getElementById('greetings').addEventListener('change', save_options);
 document.getElementById('lvolume').addEventListener('change', save_options);
 document.getElementById('gvolume').addEventListener('change', save_options);
 document.getElementById('mvolume').addEventListener('change', save_options);
+
+//preview audio
+/*
+var laughs1 = new Audio('https://github.com/FSA1/addons/raw/main/PlayAudioOnTwich/audio/varios/hahaha-stand-up04.mp3');
+var greet1 = new Audio('https://github.com/FSA1/addons/raw/main/PlayAudioOnTwich/audio/GMKrikor/krikor-bom-dia-pessoal01.MP3');
+var misc1 = new Audio('https://github.com/FSA1/addons/raw/main/PlayAudioOnTwich/audio/varios/senna-short.mp3');
+*/
+var rSound = new Audio('');
+var laughs1 = new Audio('audio_samples/laughs.mp3');
+var kekw = new Audio('audio_samples/kekw.mp3');
+var greet1 = new Audio('audio_samples/bom-dia.mp3');
+var misc1 = new Audio('audio_samples/senna.mp3');
+var misc2 = new Audio('audio_samples/profession.mp3');
+
+function playRandomSound(links, vol) {
+  //This line will select a random sound to play out of your provided URLS
+  rSound.src = links[Math.floor(Math.random() * links.length)];
+
+  if (rSound.paused === true) {
+    rSound.volume = vol;
+    rSound.play();
+  }
+}
+var playLaughs = document.getElementById('laughs1'),
+  playGreet = document.getElementById('greet1'),
+  playMisc = document.getElementById('misc1')
+
+document.getElementById('lvolume').addEventListener('click', function () {
+  //laughs1.volume = lvolume.valueAsNumber;
+  if (laughs1.paused === true) {
+    playRandomSound([laughs1.src, kekw.src], lvolume.valueAsNumber)
+    //laughs1.play();
+  }
+}, false);
+
+document.getElementById('gvolume').addEventListener('click', function () {
+  greet1.volume = gvolume.valueAsNumber;
+  if (greet1.paused === true) {
+    greet1.play();
+  }
+}, false);
+
+document.getElementById('mvolume').addEventListener('click', function () {
+  //misc1.volume = mvolume.valueAsNumber;
+  if (misc1.paused === true) {
+    playRandomSound([misc1.src, misc2.src], lvolume.valueAsNumber)
+    //misc1.play();
+  }
+}, false);

@@ -1,3 +1,20 @@
+body {
+	width: 220px;
+	min-height: 200px;
+	text-align: left;
+	font-size: calc(1vmax + .5em);
+	line-height: 1.4;
+	font-family: sans-serif;
+	padding: 15px;
+}
+.emote {
+	margin-left: 80%;
+	margin-right: 10px;
+}
+audio {
+	width: 250px;
+	height: 30px;
+}
 .fancy label {
 	display: inline-flex;
 	align-items: baseline;
@@ -55,16 +72,6 @@
 	content: '\f14a';
 }
 
-body {
-	width: 200px;
-	min-height: 300px;
-	text-align: left;
-	font-size: calc(1vmax + .5em);
-	line-height: 1.4;
-	font-family: sans-serif;
-	padding: 15px;
-}
-
 .fancy label input[type="range"] {
 	appearance: none;
 	outline: none;
@@ -118,12 +125,6 @@ body {
 	appearance: none;
 	transform: scale(1.1);
 }
-
-.emote {
-	margin-left: 80%;
-	margin-right: 10px;
-}
-
 /*light/dark color scheme*/
 @media (prefers-color-scheme: light) {
 	body {
