@@ -23,29 +23,34 @@
 
             </h3>
             <div class="vol_settings">
-                <label for="lvolume">Volume de Risadas:</label><br />
+                <label id="llab" for="lvolume">Volume de Risadas:</label><br />
                 <input type="range" id="lvolume" placeholder="0.4" name="lvolume" step="0.1" min="0.0" max="1">
                 <div class="emote">
-                    <img src="https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/1x"
+                    <img id="laughsImg" src="https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/1x"
                         srcset="https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/2x 2x, https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/3x 4x"
                         alt="KEKW" class="chat-line__message--emote bttv-emote-image">
                 </div>
-                <label for="gvolume">Volume de Saudações:</label><br />
+                <label id="glab" for="gvolume">Volume de Saudações:</label><br />
                 <input type="range" id="gvolume" placeholder="0.4" name="gvolume" step="0.1" min="0.0" max="1">
                 <div class="emote">
-                    <img src="https://cdn.betterttv.net/emote/60f4077a2d1eba5400d03484/1x"
+                    <img id="greetImg" src="https://cdn.betterttv.net/emote/60f4077a2d1eba5400d03484/1x"
                         srcset="https://cdn.betterttv.net/emote/60f4077a2d1eba5400d03484/2x 2x, https://cdn.betterttv.net/emote/60f4077a2d1eba5400d03484/3x 4x"
                         alt="peepoHey" class="chat-line__message--emote bttv-emote-image">
                 </div>
-                <label for="mvolume">Volume de Diversos:</label><br />
+                <label id="mlab" for="mvolume">Volume de Diversos:</label><br />
                 <input type="range" id="mvolume" placeholder="1.0" name="mvolume" step="0.1" min="0.0" max="1">
                 <div class="emote">
-                    <img src="https://cdn.betterttv.net/emote/5feaae3d66689834fd5a26cb/1x"
-                        srcset="https://cdn.betterttv.net/emote/5feaae3d66689834fd5a26cb/2x 2x, https://cdn.betterttv.net/emote/5feaae3d66689834fd5a26cb/3x 4x"
-                        alt="peepoHey" class="chat-line__message--emote bttv-emote-image">
+                    <img id="miscImg" style="display: inline-block; width: 28px;" src="https://github.com/FSA1/addons/raw/main/PlayAudioOnTwich/emotes/profession.png" alt="vergonha-da-profession" class="chat-line__message--emote bttv-emote-image">
                 </div>
             </div>
-        </div>
+        </div><br />
+        <hr><br />
+        
+        <label class="toggle">
+          <input id="onoff" class="toggle-checkbox" type="checkbox" checked>
+          <div class="toggle-switch"></div>
+          <span id="onn" class="toggle-label">Extensão Ativada</span>
+        </label>
         <script src="options.js"></script>
     </main>
 </body>

@@ -1,4 +1,5 @@
 function save_options() {
+  var onoff = document.getElementById('onoff').checked;
   var misc = document.getElementById('misc').checked;
   var pringles = document.getElementById('pringles').checked;
   var laughs = document.getElementById('laughs').checked;
@@ -8,6 +9,8 @@ function save_options() {
   var mvolume = document.getElementById('mvolume').valueAsNumber;
 
   chrome.storage.local.set({
+    //extension on/off
+    OnOff:onoff,
     //audio types
     Miscellaneous: misc,
     Pringles: pringles,
@@ -24,6 +27,8 @@ function save_options() {
 function restore_options() {
   // Default values
   chrome.storage.local.get({
+    //extension on/off
+    OnOff: true,
     //audio types
     Miscellaneous: true,
     Pringles: true,
@@ -35,6 +40,7 @@ function restore_options() {
     miscVol: 1.0,
     retroActive: false
   }, function (items) {
+    document.getElementById('onoff').checked = items.OnOff;
     document.getElementById('misc').checked = items.Miscellaneous;
     document.getElementById('pringles').checked = items.Pringles;
     document.getElementById('laughs').checked = items.Laughs;
@@ -46,6 +52,7 @@ function restore_options() {
 }
 
 document.addEventListener('DOMContentLoaded', restore_options);
+document.getElementById('onoff').addEventListener('change', save_options);
 document.getElementById('misc').addEventListener('change', save_options);
 document.getElementById('pringles').addEventListener('change', save_options);
 document.getElementById('laughs').addEventListener('change', save_options);
@@ -67,33 +74,62 @@ function playRandomSound(links, vol) {
   rSound.src = links[Math.floor(Math.random() * links.length)];
 
   if (rSound.paused === true) {
+    const baseURL = 'chrome-extension://alnbggbcekhiaclchgpmiehhjlgfkknf/options/audio_samples/'
     rSound.volume = vol;
+
+    if (rSound.src === baseURL+'profession.mp3') {
+      document.getElementById('miscImg').src = "https://github.com/FSA1/addons/raw/main/PlayAudioOnTwich/emotes/profession.png";
+      console.log('LOG src: ' + rSound.src);
+    }
+    if (rSound.src === baseURL+'senna.mp3') {
+      document.getElementById('miscImg').src = "https://github.com/FSA1/addons/raw/main/PlayAudioOnTwich/emotes/peepo-brazil.gif";
+      console.log('LOG src: ' + rSound.src);
+    }
+    if(rSound.volume<=0.3){
+      document.getElementById('laughsImg').src = "https://cdn.betterttv.net/emote/5f8969df40eb9502e2223310/1x";
+      document.getElementById('laughsImg').srcset = "https://cdn.betterttv.net/emote/5f8969df40eb9502e2223310/2x 2x, https://cdn.betterttv.net/emote/5f8969df40eb9502e2223310/3x 4x";
+      console.log('LOG volume: ' + rSound.volume);
+    }else{
+      document.getElementById('laughsImg').src = "https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/1x";
+      document.getElementById('laughsImg').srcset = "https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/2x 2x, https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/3x 4x";
+    }
     rSound.play();
   }
+  console.log('LOG src: ' + rSound.src);
 }
 var playLaughs = document.getElementById('laughs1'),
   playGreet = document.getElementById('greet1'),
   playMisc = document.getElementById('misc1')
 
 document.getElementById('lvolume').addEventListener('click', function () {
-  //laughs1.volume = lvolume.valueAsNumber;
   if (laughs1.paused === true) {
+    document.getElementById('llab').innerHTML = 'Volume de Risadas: '+ lvolume.valueAsNumber;
     playRandomSound([laughs1.src, kekw.src], lvolume.valueAsNumber)
-    //laughs1.play();
   }
 }, false);
 
 document.getElementById('gvolume').addEventListener('click', function () {
   greet1.volume = gvolume.valueAsNumber;
   if (greet1.paused === true) {
+    document.getElementById('glab').innerHTML = 'Volume de Saudações: '+ gvolume.valueAsNumber;
     greet1.play();
   }
 }, false);
 
 document.getElementById('mvolume').addEventListener('click', function () {
-  //misc1.volume = mvolume.valueAsNumber;
   if (misc1.paused === true) {
-    playRandomSound([misc1.src, misc2.src], lvolume.valueAsNumber)
-    //misc1.play();
+    document.getElementById('mlab').innerHTML = 'Volume de Diversos: '+ mvolume.valueAsNumber;
+    playRandomSound([misc1.src, misc2.src], mvolume.valueAsNumber)
   }
+}, false);
+
+document.getElementById('onoff').addEventListener('click', function () {
+    var status = ''
+    if(onoff.checked==true){
+      status='Ativada'
+    }else{      
+      status='Desativada'
+    }
+    document.getElementById('onn').innerHTML = 'Extensão '+ status;
+    console.log('onoff: '+onoff.checked);
 }, false);

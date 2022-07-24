@@ -15,6 +15,7 @@ if (dark) {
 var laughsVol = 0.4;
 var greetVol = 1;
 var miscVol = 1;
+var OnOff=true;
 //variables to play sound assigned after regex filter
 var miscSound = new Audio('');
 var greetSound = new Audio('');
@@ -23,6 +24,7 @@ var laughSound = new Audio('');
 function checkSettings() {
     chrome.storage.local.get({
         //categories
+        OnOff:true,
         Laughs: true,
         Greetings: true,
         Miscellaneous: true,
@@ -54,9 +56,14 @@ function checkSettings() {
             laughsVol = items.laughsVol;
             greetVol = items.greetVol;
             miscVol = items.miscVol;
+            OnOff = items.OnOff;
+            if (!items.OnOff) {
+                selectedRegEx = null
+            }
         });
 }
 
+if (OnOff===true) {
 // Get the Twitch chat HTML element
 const chat = document.getElementsByClassName('chat-scrollable-area__message-container');
 
@@ -252,7 +259,7 @@ const soundmsg = (message) => {
     }//\bvergonh[A-z]{0,}\b!?
     if (message.match(/(\bvergonh[A-z]{0,}\b!?)/gui)) {
         playRandomSound([vergonhadaprofession], miscVol, 'misc')
-        return randomLink([myEmote('30%', 'profession.png'), [myEmote('30%', 'profession.gif')]) + message
+        return randomLink([myEmote('30%', 'profession.png'), myEmote('30%', 'profession.gif'), myEmote('30%', 'profession2.gif')]) + message
     }
     //palmas PT e En
     if (message.match(/(palmas|[A-z]{0,}(Clap( {0,})){1,}|aplausos|applauses)/gui)) {
@@ -429,3 +436,8 @@ const soundmsg = (message) => {
 
 }
 addObserverIfDesiredNodeAvailable();
+
+}else{
+    console.log('PlayAudioOnTwitch \nestá desativado')
+}
+//end (if items.OnOff === true) condition
