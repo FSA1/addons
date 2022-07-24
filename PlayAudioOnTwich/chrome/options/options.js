@@ -55,11 +55,6 @@ document.getElementById('gvolume').addEventListener('change', save_options);
 document.getElementById('mvolume').addEventListener('change', save_options);
 
 //preview audio
-/*
-var laughs1 = new Audio('https://github.com/FSA1/addons/raw/main/PlayAudioOnTwich/audio/varios/hahaha-stand-up04.mp3');
-var greet1 = new Audio('https://github.com/FSA1/addons/raw/main/PlayAudioOnTwich/audio/GMKrikor/krikor-bom-dia-pessoal01.MP3');
-var misc1 = new Audio('https://github.com/FSA1/addons/raw/main/PlayAudioOnTwich/audio/varios/senna-short.mp3');
-*/
 var rSound = new Audio('');
 var laughs1 = new Audio('audio_samples/laughs.mp3');
 var kekw = new Audio('audio_samples/kekw.mp3');

@@ -252,7 +252,7 @@ const soundmsg = (message) => {
     }//\bvergonh[A-z]{0,}\b!?
     if (message.match(/(\bvergonh[A-z]{0,}\b!?)/gui)) {
         playRandomSound([vergonhadaprofession], miscVol, 'misc')
-        return randomLink([myEmote('30%', 'clap.gif'), myEmote('30%', 'clap2.gif'), myEmote('30%', 'clap3.gif'), myEmote('30%', 'clap4.gif'), myEmote('30%', 'clap5.gif')]) + message
+        return randomLink([myEmote('30%', 'profession.png'), [myEmote('30%', 'profession.gif')]) + message
     }
     //palmas PT e En
     if (message.match(/(palmas|[A-z]{0,}(Clap( {0,})){1,}|aplausos|applauses)/gui)) {
