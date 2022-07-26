@@ -1,5 +1,5 @@
 body {
-	width: 240px;
+	width: 210px;
 	min-height: 200px;
 	text-align: left;
 	font-size: calc(1vmax + .5em);
@@ -14,6 +14,9 @@ body {
 audio {
 	width: 250px;
 	height: 30px;
+}
+img{
+	padding-left: 10px;
 }
 .fancy label {
 	display: inline-flex;

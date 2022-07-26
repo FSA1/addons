@@ -1,5 +1,6 @@
 {
     "action": {
+        "default_title": "PlayAudioOnTwitch: Opções",
        "default_popup": "options/options.html"
     },
     "content_scripts": [

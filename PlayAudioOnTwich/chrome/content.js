@@ -209,7 +209,7 @@ function myPers(widthPercent, imgNameAndExt) {
 // Recursive function to check if the Twitch chat contains messages
 function addObserverIfDesiredNodeAvailable() {
     if (chat.length == 0) {
-        window.setTimeout(addObserverIfDesiredNodeAvailable, 500);
+        window.setTimeout(addObserverIfDesiredNodeAvailable, 1000);
         return;
     }
     Array.from(chat).forEach(x => {
