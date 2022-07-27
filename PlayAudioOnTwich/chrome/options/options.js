@@ -79,23 +79,19 @@ function playRandomSound(links, vol) {
 
     if (rSound.src === baseURL+'profession.mp3') {
       document.getElementById('miscImg').src = "https://github.com/FSA1/addons/raw/main/PlayAudioOnTwich/emotes/profession.png";
-      console.log('LOG src: ' + rSound.src);
     }
     if (rSound.src === baseURL+'senna.mp3') {
       document.getElementById('miscImg').src = "https://github.com/FSA1/addons/raw/main/PlayAudioOnTwich/emotes/peepo-brazil.gif";
-      console.log('LOG src: ' + rSound.src);
     }
     if(rSound.volume<=0.3){
       document.getElementById('laughsImg').src = "https://cdn.betterttv.net/emote/5f8969df40eb9502e2223310/1x";
       document.getElementById('laughsImg').srcset = "https://cdn.betterttv.net/emote/5f8969df40eb9502e2223310/2x 2x, https://cdn.betterttv.net/emote/5f8969df40eb9502e2223310/3x 4x";
-      console.log('LOG volume: ' + rSound.volume);
     }else{
       document.getElementById('laughsImg').src = "https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/1x";
       document.getElementById('laughsImg').srcset = "https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/2x 2x, https://cdn.betterttv.net/emote/62b2898c65092c1291b963e1/3x 4x";
     }
     rSound.play();
   }
-  console.log('LOG src: ' + rSound.src);
 }
 var playLaughs = document.getElementById('laughs1'),
   playGreet = document.getElementById('greet1'),
@@ -131,5 +127,4 @@ document.getElementById('onoff').addEventListener('click', function () {
       status='Desativada'
     }
     document.getElementById('onn').innerHTML = 'Extensão '+ status;
-    console.log('onoff: '+onoff.checked);
 }, false);

@@ -1,3 +1,8 @@
+/****************************************
+ * This extension was inspired by the   *
+ * extension "Twitch Chess move filter" *
+ ****************************************/
+
 //method to detect color scheme
 let dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 console.log('dark mode: ' + dark);
@@ -62,7 +67,7 @@ function checkSettings() {
             }
         });
 }
-
+// If the extension is enabled in the options menu then it will work. Maybe there is a better way to do it.
 if (OnOff===true) {
 // Get the Twitch chat HTML element
 const chat = document.getElementsByClassName('chat-scrollable-area__message-container');
@@ -77,7 +82,7 @@ var regexGreetings = new RegExp(/^(bo[ma] (dia|tarde|noite))!?|Salve.{0,2}/g, 'g
 var regexPringles = new RegExp(/\b(Pringles|fot(o){0,1}(inh[oa]){0,1} de anime|n[aã]o ?magoar( as)? ?pessoas|jogar? [kc]aro[ -]?[kc]ann?|jogar? francesa|caraca ?g4|g4 ?grobiano|grobiano ?raiz|premove ?aloprado|(seis|[0-9]{1,})( ?k?| ?mil)? ?lances?|p[ei]ndura[A-z]{0,}|da ?mate ?logo|oh ?c'?mon|(eu ?)?to ?pior( ?j[aá])?|to ?melhor( ?j[aá])?|nota ?zero|[KG]ri[kg]or?[A-z]{0,}|roubei ?nessa ?(partida)?|(o ?cara ?)?t[aá] ?ro(u)?bando|claramente ?roubando|^(mds|mjc|msca)$)\b|\b(oh?)? ?cacilda\b!?|\bbamos\b!?|\bperdemo\b!?|\bSafado\b!?|lance!|(eu )?[voôu]{2,3} ?processar ?[oa]?|(a[ií])? ?é fl[oó]rida|\blondres\b!|\bsaudaç[õo]es ?noturnas?\b!?/g, 'gui')
 
 // Regular expression for general terms and expressions
-var regexMisc = new RegExp(/\b(MLADY|modCheck|(isso)? ?n[ao] russia [A-zÀ-ú ,.]{0,} cadeia|Raff?a?(el)? ?Pig|Raff?ael Leitão|senna|Ding( Liren)?|Magnus( Carlsen)?|(Hikaru )?Naka(mura)?|(Ian )?Nepo([A-z]{0,})|Raff?a?(el)? ?Chess|wh([a]){2,}t[?]{0,}|o? ?qu(e){3,}[?]{0,}|q{4,}|en[gja]{1,2}ine|stockfish|(stock){0,1}peixe|barri(lda|nha)|tilt[A-z]{0,}|tchau ?daminha|(final)( ){0,}triste|(sadness)( ){0,}and( ){0,}sorrow|cheating)\b|\ba?cab([o]){2,}([hu ]){0,}\b!?|[eéh ]{0,}\bt[eé]{1,}tr[a]{1,}\b!?|!\bstop\b|\bvergonh[A-z]{0,}\b!?/g, 'gui')
+var regexMisc = new RegExp(/\b(MLADY|modCheck|(isso)? ?n[ao] russia [A-zÀ-ú ,.]{0,} cadeia|Raff?a?(el)? ?Pig|Raff?ael Leitão|senna|Ding( Liren)?|Magnus( Carlsen)?|(Hikaru )?Naka(mura)?|(Ian )?Nepo([A-z]{0,})|Raff?a?(el)? ?Chess|wh([a]){2,}t[?]{0,}|o? ?qu(e){3,}[?]{0,}|q{4,}|en[gja]{1,2}ine|stockfish|(stock){0,1}peixe|barri(lda|nha)|tilt[A-z]{0,}|tchau ?daminha|(final)( ){0,}triste|(sadness)( ){0,}and( ){0,}sorrow|cheating)\b|\ba?cab([o]){2,}([hu ]){0,}\b!?|[eéh ]{0,}\bt[eé]{1,}tr[a]{1,}\b!?|\bvergonh[A-z]{0,}\b!?/g, 'gui')
 
 // Enable the mutation observer to observe the child elements of the Twitch chat, the chat messages
 var mutationConfig = { childList: true };
@@ -240,11 +245,7 @@ const observer = new MutationObserver(callback);
 
 // The sound and text message that will replace the term matched
 const soundmsg = (message) => {
-    //stop sound
-    if (message.match(/stop/gu)) {
-        miscSound.pause();
-        return randomLink([myEmote('20%', 'mute-icon.png'), myEmote('30%', 'mute-icon2.png'), myEmote('30%', 'stop-light.jpg')])
-    }//minúsculo usa emote alternativo, animado
+    //minúsculo usa emote alternativo, animado
     if (message.match(/(KEKW([ ]{0,1})){1,}/gu)) {
         playRandomSound([kekw], laughsVol, 'laughs')
         return bttvEmo('5e9c6c187e090362f8b0b9e8', 'KEKW')
