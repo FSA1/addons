@@ -376,7 +376,7 @@ const soundmsg = (message) => {
         return '<a class="funny-sound">'+audioSymbol+'</a> ' + message
     }//Krikor, Grikor, Grigor, Pringles
     if (message.match(/([KG]ri[kg]or?[A-z]{0,}|Pringles)/gui)) {
-        return randomLink([myPers('30%', 'Krikor.png'), myPers('30%', 'Krikor2.png'), myPers('30%', 'Krikor3.png'), myPers('30%', 'Krikor4.png'), myEmote('30%', 'Krikor5.png')]) + message
+        return randomLink([myPers('30%', 'Krikor.png'), myPers('30%', 'Krikor2.png'), myPers('30%', 'Krikor3.png'), myPers('30%', 'Krikor4.png'), myPers('30%', 'Krikor5.png')]) + message
     }//RafPig 'tchau daminha!'
     if (message.match(/tchau ?daminha/gui)) {
         playRandomSound([tchaudaminha], miscVol, 'misc')
@@ -439,6 +439,7 @@ const soundmsg = (message) => {
 addObserverIfDesiredNodeAvailable();
 
 }else{
+    observer.disconnect();
     console.log('PlayAudioOnTwitch \nestá desativado')
 }
 //end (if items.OnOff === true) condition
