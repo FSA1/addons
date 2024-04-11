@@ -40,7 +40,7 @@
     }
 
     addObserverIfDesiredNodeAvailable();
-    //=== Função tocar som referenciado aleatoreamente ===============================================================================
+    //=== Tocar audio referenciado aleatoreamente ==========
     // Variável global para armazenar o último número sorteado
     var ultimoNumeroSorteado;
     let imglastRandomNumber = null;
@@ -89,8 +89,8 @@
             myAudio.play();
         }
     }
+    // END Função para tocar um áudio de início personalizado
 
-    //================================================================================================================================
     // Variável global para armazenar a referência do intervalo
     let audioInterval;
 
@@ -127,15 +127,15 @@
             }
         });
     }
-    //=== FIM de Função tocar som referenciado aleatoreamente ========================================================================
+    //=== FIM de tocar audio referenciado aleatoreamente ==========
 
-    //score monitoring============================================/
+    //score monitoring==========/
 
     // Objeto para armazenar o último score e timestamp
     let lastScoreData = { score: null, timestamp: null };
     let lastScorePieceData = { score: null, timestamp: null };
 
-    //==========score pieces============
+    //==========score pieces==========
     var pieceScoreId;
     var scoreCommentPlayed = false;
     // Função para verificar a pontuação do jogador e do oponente
@@ -190,7 +190,7 @@
 
     // Chama a função para iniciar o intervalo
     iniciarIntervalo1();
-    //END score pieces ============================================/
+    //END score pieces ==========/
 
 
     // Função para verificar a mudança de score
@@ -212,7 +212,7 @@
             }
         }
     }
-    //End score monitoring==========================================/
+    //End score monitoring==========/
 
     // Função para extrair o tempo da partida e calcular o intervalo
     function calculateInterval(matchTimeText) {
@@ -285,7 +285,7 @@
     const startObserver = new MutationObserver(callbackStart);
     const endObserver = new MutationObserver(callbackEnd);
 
-    //Saudações================================================
+    //Saudações==========
     function tocarAudioPorHorario() {
       var audio = new Audio();
       var horaAtual = new Date().getHours();
@@ -308,9 +308,9 @@
 
     // Chame a função quando quiser tocar o áudio
     setTimeout(tocarAudioPorHorario, 30000);
-    //FIM Saudações================================================
+    //FIM Saudações==========
 
-    //=========TIMEALERT===========================================
+    //=========TIMEALERT==========
 
     // Função para tocar um som de alerta
     let alertSoundPlayed = false;
@@ -371,10 +371,10 @@
     // Inicia a verificação
     iniciarVerificacao();
 
-    //==========END TIMEALERT===============================================================
+    //==========END TIMEALERT==========
 
 
-    //Alerts Observer ======================================================================
+    //Alerts Observer ==========
     let listenAlertinterv = 300; // Inicializa o intervalo com 30 segundos
     var connected = true;
     const alertsContainer = document.getElementsByClassName('alerts-container');
@@ -425,7 +425,7 @@
     // Inicializa a observação dos alertas
     const alertsObserver = new MutationObserver(callbackAlerts);
     alertsContainerObserver();
-    //END Alerts Observer ======================================================================
+    //END Alerts Observer ==========
 
 
 })();
